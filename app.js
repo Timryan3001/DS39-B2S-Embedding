@@ -26,8 +26,10 @@ function logWorkbookInformation() {
         index = element.index;
         worksheetName = element.name;
         console.log(`The worksheet with index ${index} is: ${worksheetName}`)
-    })
+    });
 };
+
+
 
 viz.addEventListener("firstinteractive", logWorkbookInformation);
 
