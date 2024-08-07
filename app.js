@@ -57,6 +57,9 @@ function oregonWashFunction() {
     salesBySegment.applyFilterAsync("State", ["Washington", "Oregon"], "replace");
 }
 
-
 viz.addEventListener("firstinteractive", logWorkbookInformation);
+
+oregonWashingtonButton.addEventListener("click", oregonWashFunction)
+
+
 
