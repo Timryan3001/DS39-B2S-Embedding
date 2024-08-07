@@ -57,9 +57,30 @@ function oregonWashFunction() {
     salesBySegment.applyFilterAsync("State", ["Washington", "Oregon"], "replace");
 }
 
-viz.addEventListener("firstinteractive", logWorkbookInformation);
+function clearStateFilter() {
+    //Log what's pressed
+    console.log(clearFilterButton.value);
 
-oregonWashingtonButton.addEventListener("click", oregonWashFunction)
+    //Apply the filter to all of the sheets
+    saleMap.clearFilterAsync("State");
+    totalSales.clearFilterAsync("State");
+    salesByProduct.clearFilterAsync("State");
+    salesBySegment.clearFilterAsync("State");
+}
+
+function unDo() {
+    // Log what's pressed
+    console.log(undoButton.value);
+
+    //Undo last action to viz
+    viz.undoAsync();
+}
+
+viz.addEventListener("firstinteractive", logWorkbookInformation);
+oregonWashingtonButton.addEventListener("click", oregonWashFunction);
+undoButton.addEventListener("click", unDo);
+clearFilterButton.addEventListener("click", clearStateFilter);
+
 
 
 
