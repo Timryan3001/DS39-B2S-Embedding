@@ -17,6 +17,16 @@ function logWorkbookInformation() {
         index = element.index;
         console.log(`The sheet with index ${index} is: ${element.name}`);
     });
+
+    vizActiveSheet = workbook.activeSheet;
+    console.log(`The active sheet is ${vizActiveSheet.name}`)
+
+    listSheets = vizActiveSheet.worksheets;
+    listSheets.forEach((element) => {
+        index = element.index;
+        worksheetName = element.name;
+        console.log(`The worksheet with index ${index} is: ${worksheetName}`)
+    })
 };
 
 viz.addEventListener("firstinteractive", logWorkbookInformation);
